@@ -11,12 +11,28 @@
     <script>
       const rand = Math.random();
       console.log(rand);
+      let result;
 
+      //guess
+      const guess = 'heads';
+
+      //flipping coin randomly
       if (rand < 0.5) {
-        console.log('heads');
+        // console.log('heads');
+        result = 'heads';
       } else {
-        console.log('tails');
+        // console.log('tails');
+        result = 'tails';
       }
+
+      //comparing guess and flip results
+      if (guess === result) {
+        console.log('You win!');
+      } else {
+        console.log('You lose!');
+      }
+
+
 
 
     </script>
