@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7c - 03 Functions exercise</title>
+  </head>
+
+  <body>
+    <script>
+      // function greet(name = 'there') {
+      //   console.log(`Hello ${name}!`);
+      // }
+
+      // greet('CHT');
+      // greet('Rangika');
+      // greet('Simon');
+      // greet('Ramani');
+      // greet('Thari');
+      // greet();
+
+
+      function greet(name) {
+
+        //since 'undefined' is a falsy value
+        if (!name)
+          console.log('Hi there!');
+        else
+          console.log(`Hello ${name}!`);
+      }
+
+
+      greet('CHT');
+      greet('Rangika');
+      greet('Simon');
+      greet('Ramani');
+      greet('Thari');
+      greet();
+
+    </script>
+  </body>
+
+</html>
