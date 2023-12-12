@@ -33,11 +33,15 @@
 
 
     <script>
-      const score = {
-        wins: 0,
-        losses: 0,
-        ties: 0
-      };
+      // const score = {
+      //   wins: 0,
+      //   losses: 0,
+      //   ties: 0
+      // };
+
+      const score = JSON.parse(localStorage.getItem('score'));
+
+      // console.log(JSON.parse(localStorage.getItem('score')));
 
 
       function playGame(playerMove) {
@@ -82,7 +86,9 @@
           score.ties += 1;
         }
 
-        localStorage.setItem('message', 'hello');
+        //save in the local storage so that scores are not renewed  every time the page is refreshed
+        //to convert score into a string - stringify() is used.
+        localStorage.setItem('score', JSON.stringify(score));
 
 
         //displaying the result in a popup
