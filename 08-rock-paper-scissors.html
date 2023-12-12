@@ -44,72 +44,77 @@
 
       // let score = JSON.parse(localStorage.getItem('score'));
 
-      let score = JSON.parse(localStorage.getItem('score'));
-
-
-      // if (score === null) {
-      if (!null) {
-        score = {
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        core = {
           wins: 0,
           losses: 0,
           ties: 0
         };
+
+
+        // if (score === null) {
+        // if (!null) {
+        //   score = {
+        //     wins: 0,
+        //     losses: 0,
+        //     ties: 0
+        //   };
+        // }
+
+
+
+        // console.log(JSON.parse(localStorage.getItem('score')));
+
+
+        function playGame(playerMove) {
+          const computermove = pickComputerMove();
+
+      let result = '';
+
+      if (playerMove === 'rock') {
+        //comparing the computer's move with the move user selected to get result
+        if (computermove === 'rock') {
+          result = 'Tie.👽';
+        } else if (computermove === 'paper') {
+          result = 'You lose!!💀';
+        } else if (computermove === 'scissors') {
+          result = 'You win!😀';
+        }
+
+      } else if (playerMove === 'paper') {
+        if (computermove === 'rock') {
+          result = 'You win!😀';
+        } else if (computermove === 'paper') {
+          result = 'Tie.👽';
+        } else if (computermove === 'scissors') {
+          result = 'You lose!!💀';
+        }
+
+      } else if (playerMove === 'scissors') {
+        if (computermove === 'rock') {
+          result = 'You lose!!💀';
+        } else if (computermove === 'paper') {
+          result = 'You win!😀';
+        } else if (computermove === 'scissors') {
+          result = 'Tie.👽';
+        }
       }
 
+      if (result === 'You win!😀') {
+        score.wins += 1;
+      } else if (result === 'You lose!!💀') {
+        score.losses += 1;
+      } else if (result === 'Tie.👽') {
+        score.ties += 1;
+      }
+
+      //save in the local storage so that scores are not renewed  every time the page is refreshed
+      //to convert score into a string - stringify() is used.
+      localStorage.setItem('score', JSON.stringify(score));
 
 
-      // console.log(JSON.parse(localStorage.getItem('score')));
-
-
-      function playGame(playerMove) {
-        const computermove = pickComputerMove();
-
-        let result = '';
-
-        if (playerMove === 'rock') {
-          //comparing the computer's move with the move user selected to get result
-          if (computermove === 'rock') {
-            result = 'Tie.👽';
-          } else if (computermove === 'paper') {
-            result = 'You lose!!💀';
-          } else if (computermove === 'scissors') {
-            result = 'You win!😀';
-          }
-
-        } else if (playerMove === 'paper') {
-          if (computermove === 'rock') {
-            result = 'You win!😀';
-          } else if (computermove === 'paper') {
-            result = 'Tie.👽';
-          } else if (computermove === 'scissors') {
-            result = 'You lose!!💀';
-          }
-
-        } else if (playerMove === 'scissors') {
-          if (computermove === 'rock') {
-            result = 'You lose!!💀';
-          } else if (computermove === 'paper') {
-            result = 'You win!😀';
-          } else if (computermove === 'scissors') {
-            result = 'Tie.👽';
-          }
-        }
-
-        if (result === 'You win!😀') {
-          score.wins += 1;
-        } else if (result === 'You lose!!💀') {
-          score.losses += 1;
-        } else if (result === 'Tie.👽') {
-          score.ties += 1;
-        }
-
-        //save in the local storage so that scores are not renewed  every time the page is refreshed
-        //to convert score into a string - stringify() is used.
-        localStorage.setItem('score', JSON.stringify(score));
-
-
-        //displaying the result in a popup
-        alert(`You picked ${playerMove}. Computer picked ${computermove}. ${result}
+      //displaying the result in a popup
+      alert(`You picked ${playerMove}. Computer picked ${computermove}. ${result}
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 
       }
