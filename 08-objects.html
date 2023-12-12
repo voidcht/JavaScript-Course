@@ -62,9 +62,31 @@
       // console.log(typeof product2);
       // console.log(typeof JSON.stringify(product2));
 
-      const jsonString = JSON.stringify(product2);
-      console.log(JSON.parse(jsonString));
+      // const jsonString = JSON.stringify(product2);
+      // console.log(JSON.parse(jsonString));
 
+      // console.log('hello'.length);
+      // console.log('hello'.toUpperCase());
+
+      const object1 = {
+        message: 'hello'
+      };
+
+      object1.message = 'Good job!';
+      console.log(object1);
+
+      const object2 = object1;
+
+      console.log(object1);
+      console.log(object2);
+
+      const object3 = {
+        message: 'Good job!'
+      };
+
+      console.log(object3 === object1);
+
+      console.log(object2 === object1);
 
     </script>
 
