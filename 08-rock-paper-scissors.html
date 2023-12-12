@@ -29,6 +29,8 @@
       score.wins = 0;
       score.losses = 0;
       score.ties = 0;
+      
+      localStorage.removeItem('score');
     "> Reset Score</button>
 
 
@@ -39,7 +41,22 @@
       //   ties: 0
       // };
 
-      const score = JSON.parse(localStorage.getItem('score'));
+
+      // let score = JSON.parse(localStorage.getItem('score'));
+
+      let score = JSON.parse(localStorage.getItem('score'));
+
+
+      // if (score === null) {
+      if (!null) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        };
+      }
+
+
 
       // console.log(JSON.parse(localStorage.getItem('score')));
 
