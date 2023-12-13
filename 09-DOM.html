@@ -8,26 +8,42 @@
   </head>
 
   <body>
-    <button>
-      hello
-    </button>
+    <button>hello</button>
+    <button class="js-button">second button</button>
     <script>
-      console.log(document.title);
-      document.title = 'Changed';
+      // console.log(document.title);
+      // document.title = 'Changed';
 
-      console.log(document.body);
-      console.log(typeof document.body);
+      // console.log(document.body);
+      // console.log(typeof document.body);
 
-      // console.log(document.body.innerHTML);
+      // // console.log(document.body.innerHTML);
 
-      console.log(typeof document.body.innerHTML);
+      // console.log(typeof document.body.innerHTML);
 
-      // document.body.innerHTML = 'Changed';
-      document.body.innerHTML = '<button> good job! </button>';
+      // // document.body.innerHTML = 'Changed';
+      // document.body.innerHTML = '<button> good job! </button>';
 
 
       // document.body.innerHTML = 'hello';
       // document.title = 'good job!';
+
+      //using querySelector()
+      console.log(document.querySelector('button'));
+
+      console.log(document.querySelector('button').innerHTML);
+
+      document.querySelector('button')
+        .innerHTML = 'changed';
+
+      console.log(document.querySelector('.js-button'));
+
+      const buttonElement = document.querySelector('.js-button');
+      console.log(buttonElement);
+
+
+
+
     </script>
   </body>
 
