@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product object with same product?</title>
+  </head>
+
+  <body>
+
+    <script>
+      const product1 = {
+        name: 'basketball',
+        price: 200
+      }
+
+      const product2 = {
+        name: 'tennis-ball',
+        price: 200
+      }
+
+      const product3 = {
+        name: 'tennis-ball',
+        price: 200
+      }
+
+
+
+
+      function isSameProduct(product1, product2) {
+        if (product1.name === product2.name && product1.price === product2.price)
+          return true;
+        else
+          return false;
+      }
+
+      console.log(isSameProduct(product2, product1));
+
+
+      // Here is an alternative solution that uses less code. - from answers
+      function isSameProduct(product1, product2) {
+        return (
+          product1.name === product2.name &&
+          product1.price === product2.price
+        );
+      }
+
+    </script>
+  </body>
+
+</html>

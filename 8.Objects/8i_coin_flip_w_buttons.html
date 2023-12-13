@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+  </head>
+
+  <body>
+    <button onclick="
+      playGame('heads');
+    ">heads</button>
+
+    <button onclick="
+      playGame('tails');
+    ">tails</button>
+
+    <script>
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+
+
+      function playGame(guess) {
+
+        const result = tossTheCoin();
+
+        //determining the final result
+        // guess === result ? console.log('You win!') : console.log('You lose!');
+        if (guess === result) {
+          console.log('You win!');
+          score.wins++;
+        } else {
+          console.log('You lose!!');
+          score.losses++;
+        }
+
+        //saving the score in memory
+        localStorage.setItem('score', JSON.stringify(score));
+
+        //displaying the score in console
+        console.log(`It was ${result}! You picked ${guess}! 
+Wins: ${score.wins}, Losses: ${score.losses}`);
+
+
+      }
+
+
+      function tossTheCoin() {
+        //computer's random guess
+        const rand = Math.random();
+        console.log(rand);
+
+        let result = '';
+        //selecting the guess with equal probabilities
+        result = rand < 0.5 ? 'heads' : 'tails';
+        return result;
+
+      }
+
+
+
+      //flipping coin randomly
+      // if (rand < 0.5) {
+      //   // console.log('heads');
+      //   result = 'heads';
+      // } else {
+      //   // console.log('tails');
+      //   result = 'tails';
+      // }
+
+      //rand < 0.5 ? result = 'heads' : result = 'tails';
+      //answer from course
+      // result = rand < 0.5 ? 'heads' : 'tails';
+
+
+
+
+
+      //comparing guess and flip results
+      // if (guess === result) {
+      //   console.log('You win!');
+      // } else {
+      //   console.log('You lose!');
+      // }
+
+
+      // guess === result ? console.log('You win!') : console.log('You lose!');
+      //answer from course
+      // console.log(guess===result ? 'You win!' : 'You lose!');
+
+
+
+    </script>
+  </body>
+
+</html>
