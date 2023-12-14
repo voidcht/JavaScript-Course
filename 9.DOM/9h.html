@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9h - Challenge Exercise 2</title>
+  </head>
+
+  <body>
+    <input class="js-input-type" type="text" placeholder="Type something" onkeyup="
+      updateOnType(event);
+      ">
+    <p class="js-display"></p>
+  </body>
+
+  <script>
+
+    function updateOnType(event) {
+      const inputElement = document.querySelector('.js-input-type');
+      const text = inputElement.value;
+
+      document.querySelector('.js-display').innerHTML = text;
+    }
+  </script>
+
+</html>

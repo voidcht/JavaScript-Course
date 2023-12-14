@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+
+  <body>
+    <button onclick="
+      //console.log(`Cart quantity: ${cartQuantity}`);
+      displayCartQuantity();
+    ">Show Quantity</button>
+
+    <button onclick="
+      updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+      updateCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+      updateCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+      updateCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+      updateCartQuantity(5);
+    ">+5</button>
+
+    <button onclick="
+      updateCartQuantity(-1);
+    ">Remove from cart</button>
+
+    <button onclick="
+      updateCartQuantity(-2);
+    ">-2</button>
+
+    <button onclick="
+      updateCartQuantity(-3);
+    ">-3</button>
+
+    <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      // console.log(`Cart quantity: ${cartQuantity}`);
+      
+      displayCartQuantity();
+
+    ">Reset Cart</button>
+
+    <p class="js-display"></p>
+
+    <script>
+      let cartQuantity = 0;
+
+      // let message = `Cart quantity: ${cartQuantity}`;
+      // displayOnPage(message);
+
+      //display when the page loads
+      displayCartQuantity();
+
+      function updateCartQuantity(change) {
+        if (cartQuantity + change > 10) {
+          alert('The cart is full');
+          return;
+        }
+
+        if (cartQuantity + change < 0) {
+          alert('Not enough items in the cart');
+          return;
+        }
+
+        cartQuantity += change;
+        //console.log(`Cart quantity: ${cartQuantity}`);
+
+        //display the updated quantity on the page
+        // message = `Cart quantity: ${cartQuantity}`;
+        // displayOnPage(message);
+
+        displayCartQuantity();
+
+      }
+
+      //answer
+      function displayCartQuantity() {
+        const displayElement = document.querySelector('.js-display');
+        displayElement.innerHTML = `Cart quantity: ${cartQuantity}`;
+      }
+
+
+
+      //before adding 'return'
+
+      // function updateCartQuantity(change) {
+      //   if (cartQuantity + change > 10) {
+      //     alert('The cart is full');
+
+      //   } else if (cartQuantity + change < 0) {
+      //     alert('Not enough items in the cart');
+
+      //   } else {
+      //     cartQuantity += change;
+      //     console.log(`Cart quantity: ${cartQuantity}`);
+      //   }
+      // }
+
+
+      // function displayOnPage(message) {
+      // const displayElement = document.querySelector('.js-display');
+      // displayElement.innerHTML = message;
+      // }
+
+    </script>
+  </body>
+
+</html>

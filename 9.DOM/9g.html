@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects - Challenge Exercise 1 </title>
+  </head>
+
+  <body>
+    <p>Youtube Subscribe Button</p>
+    <button class="js-subscribe-button" onclick="
+      subscribe();
+    ">
+      Subscribe
+    </button>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping</p>
+    <p>Orders over $40 = FREE shipping!</p>
+    <p>
+      <input class="js-input" type="text" placeholder="Cost of order" onkeydown="
+        // console.log('typing...');
+        // console.log(event.key);
+        handleCostKeydown(event);
+
+        ">
+      <button onclick="
+        calculateTotal();
+      ">Calculate</button>
+    </p>
+    <p class="js-total-cost"></p>
+
+
+    <script>
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+
+
+
+      function subscribe() {
+        const buttonElement = document.querySelector('.js-subscribe-button');
+
+        if (buttonElement.innerText === 'Subscribe')
+          buttonElement.innerHTML = 'Subscribed';
+        else
+          buttonElement.innerHTML = 'Subscribe';
+      }
+
+
+
+      function calculateTotal() {
+
+        const inputElement = document.querySelector('.js-input');
+        //convert into cents (*100)
+        let cost = Number(inputElement.value) * 100;
+
+
+        //calculate in cents
+        if (cost < 4000) {
+          cost = cost + 1000;
+        }
+
+
+        //convert back to dollars (/100)
+        document.querySelector('.js-total-cost')
+          .innerHTML = `$${cost / 100}`;
+
+      }
+
+    </script>
+  </body>
+
+</html>
