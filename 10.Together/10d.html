@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 03 - Toggle button</title>
+    <link rel="stylesheet" href="styles/10d.css">
+  </head>
+
+  <body>
+    <button class="js-toggle-button" onclick="
+      foc();
+      ">
+      Gaming
+    </button>
+    <script>
+      function foc() {
+        const buttonElement = document.querySelector('.js-toggle-button');
+
+        let isToggled = buttonElement.classList.contains('is-toggled');
+        console.log(isToggled);
+
+        if (!isToggled) {
+          buttonElement.classList.add('is-toggled');
+        } else {
+          buttonElement.classList.remove('is-toggled');
+        }
+      }
+    </script>
+  </body>
+
+</html>

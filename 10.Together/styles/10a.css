@@ -1,0 +1,45 @@
+button
+{
+  font-size: 16px;
+}
+
+
+.add-to-cart-button
+{
+  background-color: rgb(255, 216, 70);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 50px;
+
+  font-family: Arial;
+  margin-bottom: 20px;
+
+  cursor: pointer;
+}
+
+.request-now-button
+{
+  margin-top: 20px;
+  margin-right: 20px;
+
+  background-color: black;
+  color: white;
+  font-family: Arial;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.schedule-later-button
+{
+  background-color: rgb(230, 230, 230);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
