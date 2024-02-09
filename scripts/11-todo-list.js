@@ -7,19 +7,25 @@ const todoList = [
   "write journal"
 ];
 
-let todoListHTML = '';
+renderToDoList();
 
-for(let i =0; i< todoList.length; i++){
-  const todo = todoList[i];
-  const html = `<p>${todo}</p>`;
-  //accumulator string - to combine all the <p> items for to do list items
-  todoListHTML += html;
+function renderToDoList(){
+  let todoListHTML = '';
+
+  for(let i =0; i< todoList.length; i++){
+    const todo = todoList[i];
+    const html = `<p>${todo}</p>`;
+
+    //accumulator string - to combine all the <p> items for to do list items
+    todoListHTML += html;
+  }
+
+  //display accumulator result
+  console.log(todoListHTML);
+  
+  document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 }
-//display accumulator result
-console.log(todoListHTML);
 
-
-document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 
 
 function addTodo(){
@@ -32,4 +38,6 @@ function addTodo(){
   console.log(todoList);
 
   inputElement.value = '';
+
+  renderToDoList();
 }
