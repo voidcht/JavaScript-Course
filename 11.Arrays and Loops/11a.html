@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11a Exercise - Arrays and Loops </title>
+  </head>
+
+  <body>
+    <script>
+      const nums = [10, 20, 30];
+
+
+      //display initial array
+      loopThroughArray(nums);
+
+
+      //changing the value
+      nums[nums.length - 1] = 99;
+
+      //display array after changing the last value
+      loopThroughArray(nums);
+
+
+
+      function loopThroughArray(array) {
+        console.log('The array is ' + array);
+        for (let i = 0; i < array.length; i++) {
+          console.log(array[i]);
+        }
+      }
+
+
+    </script>
+  </body>
+
+</html>

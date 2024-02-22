@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11n - Arrays and Loops</title>
+  </head>
+
+  <body>
+    <script>
+      //takes an array of strings and returns an object 
+      //with how many times each string appeared
+      function countWords(words) {
+        const result = {}; //empty object
+
+
+
+
+        for (let i = 0; i < words.length; i++) {
+          const word = words[i];
+
+          //result[word] accesses the 'word' property saved inside 'result' object
+          //where if, word = 'apple' then result[word] is result['apple']
+
+          if (!result[word]) {
+            result[word] = 1;
+          } else {
+            result[word]++;
+          }
+        }
+
+        return result;
+      }
+
+
+
+
+
+      console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+
+
+
+    </script>
+  </body>
+
+</html>

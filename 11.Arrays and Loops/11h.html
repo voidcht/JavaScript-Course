@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11h = Arrays and Loops</title>
+  </head>
+
+  <body>
+    <script>
+      function addOne(array) {
+
+        const arrPlusOne = [];
+
+        for (let i = 0; i < array.length; i++) {
+
+          const num = array[i];
+          // console.log(num);
+
+          arrPlusOne.push(num + 1);
+
+        }
+
+        return arrPlusOne;
+
+        //console.log(arrPlusOne);
+      }
+
+      console.log(addOne([1, 2, 3]));
+      console.log(addOne([-2, -1, 0, 99]));
+
+
+    </script>
+  </body>
+
+</html>

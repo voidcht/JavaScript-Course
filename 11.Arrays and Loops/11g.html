@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11g - Arrays and Loops</title>
+  </head>
+
+  <body>
+    <script>
+      //we can use the accumulator pattern to create a new array
+      //with values of one increased of the original numeric array
+      const arr = [1, 2, 3];
+      const arrPlusOne = [];
+
+      for (let i = 0; i < arr.length; i++) {
+
+        const num = arr[i];
+        // console.log(num);
+
+        arrPlusOne.push(num + 1);
+
+      }
+
+      console.log(arrPlusOne);
+    </script>
+  </body>
+
+</html>
