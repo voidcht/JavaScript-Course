@@ -2,9 +2,12 @@
 
 //For the second version of the app, let's have some default values for the array
 const todoList = [
-  "make dinner",
-  "watch a film",
-  "write journal"
+  { name: "make dinner",
+    dueDate: '2022-12-22'},
+  { name: "watch a film",
+    dueDate: '2022-12-22'},
+  { name: "write journal",
+    dueDate: '2022-12-28'}
 ];
 
 renderToDoList();
@@ -14,10 +17,13 @@ function renderToDoList(){
   let todoListHTML = '';
 
   for(let i =0; i< todoList.length; i++){
-    const todo = todoList[i];
+    //updating to do list item as an object instead of a string
+    const todoObject = todoList[i];
+    const name = todoObject.name;
+    const dueDate = todoObject.dueDate;
     const html = `
       <p>
-        ${todo} 
+        ${name} ${dueDate}
         <button onClick="
           todoList.splice(${i},1);
           renderToDoList();
