@@ -10,11 +10,20 @@ const todoList = [
 renderToDoList();
 
 function renderToDoList(){
+  //a string to accumulate the result
   let todoListHTML = '';
 
   for(let i =0; i< todoList.length; i++){
     const todo = todoList[i];
-    const html = `<p>${todo}</p>`;
+    const html = `
+      <p>
+        ${todo} 
+        <button onClick="
+          todoList.splice(${i},1);
+          renderToDoList();
+        "> Delete </button> 
+      </p>
+    `;
 
     //accumulator string - to combine all the <p> items for to do list items
     todoListHTML += html;
