@@ -50,7 +50,20 @@ function addTodo(){
   const name = inputElement.value;
   //console.log(name);
 
-  todoList.push(name);
+  //getting the due date inserted by the user
+  const dateInputElement = document.querySelector('.js-due-date-input');
+  const dueDate = dateInputElement.value;
+
+  
+  //todoList.push(name);
+//Now, instead of just a name, we have insert an object to the array
+ todoList.push({
+  //name: name,
+  name,
+  //dueDate: dueDate
+  dueDate
+ });
+
 
   console.log(todoList);
 
