@@ -19,7 +19,9 @@ function renderToDoList(){
   for(let i =0; i< todoList.length; i++){
     //updating to do list item as an object instead of a string
     const todoObject = todoList[i];
-    const name = todoObject.name;
+    //const name = todoObject.name;
+  //object restructuring can be used instead of above line
+    const {name} = todoObject; 
     const dueDate = todoObject.dueDate;
     const html = `
       <p>
