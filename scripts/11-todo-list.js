@@ -21,8 +21,8 @@ function renderToDoList(){
     const todoObject = todoList[i];
     //const name = todoObject.name;
   //object restructuring can be used instead of above line
-    const {name} = todoObject; 
-    const dueDate = todoObject.dueDate;
+    const {name, dueDate} = todoObject; 
+    //const dueDate = todoObject.dueDate;
     const html = `
       <p>
         ${name} ${dueDate}
