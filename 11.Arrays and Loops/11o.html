@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11o to 11q- Arrays and Loops Exercises</title>
+  </head>
+
+  <body>
+    <script>
+      //checking for the word 'search' in an array
+      //displays the index if it is present in the array OR
+      //displays -1 if it doesn't.
+      function checkWord(array) {
+        let index = -1;
+        for (let i = 0; i < array.length; i++) {
+          const word = array[i];
+          if (word === 'search') {
+            index = i;
+          }
+        }
+        console.log(index);
+      }
+
+
+      const array1 = ['hello', 'world', 'search', 'good'];
+      const array2 = ['not', 'found'];
+
+      // checkWord(array1);
+      // checkWord(array2);
+
+      //does the same thing as before BUT when there are multiple 'search'
+      //words present in the array, the index of the first 'search' is given.
+      function checkFirstWord(array) {
+        let index = -1;
+        for (let i = 0; i < array.length; i++) {
+          const word = array[i];
+          if (word === 'search') {
+            index = i;
+            //newly added - to break out of the loop (searching)
+            //when the first 'search' word is found.
+            break;
+          }
+        }
+        console.log(index);
+      }
+      const array3 = ['hello', 'world', 'search', 'good', 'search'];
+      // checkFirstWord(array3);
+
+
+      //same function as before but passing the word to be searched
+      function findIndex(array, word) {
+        let index = -1;
+        for (let i = 0; i < array.length; i++) {
+          const _word = array[i];
+          if (_word === word) {
+            index = i;
+            //newly added - to break out of the loop (searching)
+            //when the first 'search' word is found.
+            break;
+          }
+        }
+        console.log(index);
+      }
+
+      // findIndex(['green', 'red', 'blue', 'red'], 'red');
+      // findIndex(['green', 'red', 'blue', 'red'], 'yellow');
+
+      //ANSWER - function findIndex() - instead of creating an accumulator
+      //variable and updating in the loop, we can just return it directly when
+      //we find it since this is a function ( without using the 'break' keyword)
+      function findIndexAnswer(array, word) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            return i;
+          }
+        }
+        //if the function is not returned by now, it means that
+        //word does not exist in ght array, so we can return -1.
+        return -1;
+      }
+
+      console.log(findIndexAnswer(['green', 'red', 'blue', 'red'], 'red'));
+      console.log(findIndexAnswer(['green', 'red', 'blue', 'red'], 'yellow'));
+
+    </script>
+  </body>
+
+</html>
