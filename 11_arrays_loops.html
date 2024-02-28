@@ -60,18 +60,118 @@
       // }
 
       //accumulator pattern
-      const nums = [1, 1, 3];
-      let total = 0;
+      // const nums = [1, 1, 3];
+      // let total = 0;
 
-      for (let i = 0; i < nums.length; i++) {
-        const num = nums[i];
-        total += num;
+      // for (let i = 0; i < nums.length; i++) {
+      //   const num = nums[i];
+      //   total += num;
+      // }
+
+      // console.log(total);
+
+      // //using accumulator pattern to obtain an array
+      // //of doubled values
+      // const numsDoubled = [];
+
+      // for (let i = 0; i < nums.length; i++) {
+      //   const num = nums[i];
+      //   numsDoubled.push(num * 2);
+      // }
+      // console.log(numsDoubled);
+
+
+      //after the project to do app
+
+      // const array1 = [1, 2, 3];
+      // const array2 = array1;
+
+      // array2.push(4);
+
+      // console.log(array1);
+      // console.log(array2);
+
+      //copying the array
+      const array3 = [1, 2, 3];
+      const array4 = array3.slice();
+
+      array4.push(4);
+
+      console.log(array3);
+      console.log(array4);
+
+      //de-structuring  - shortcut for arrays
+      const array5 = [1, 2, 3];
+
+      const firstvalue = array5[0];
+      const secondvallue = array5[1];
+
+      //same as above
+      const [firstValue, secondValue] = [1, 2, 3];
+
+
+      //break keyword in loops
+      //let's create a loop that counts from 1 to 10
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+        //to stop the loop early when i = 8 - using break
+        if (i === 8) {
+          break;
+        }
       }
 
-      console.log(total);
+      for (let i = 1; i <= 10; i++) {
+
+        //to skip one iteration of the loop when i = 3 - using continue
+        if (i === 3) {
+          continue;
+        }
+        console.log(i);
+
+      }
+
+      //skip a number if it is divisible by 3
+      for (let i = 1; i <= 10; i++) {
+
+        //to skip one iteration of the loop when i is divisible by 3 - using continue
+        if (i % 3 === 0) {
+          continue;
+        }
+        console.log(i);
+
+      }
+
+      //using 'continue' in a while loop
+
+      //loop variable
+      let i = 1;
+
+      while (i <= 10) {
+        //skipping condition - divisible by 3
+        if (i % 3 === 0) {
+          //we should put the increment step here so it is increase
+          //even when the skipping condition is met
+          i++;
+          continue;
+        }
+
+        //the executed step 
+        console.log(i);
+
+        //DOESN'T increase the value to go after the skipping value
+        //increment step ( by one)
+        i++;
+
+      }
+
+      //Using Loops with functions
+
+      //previous code used to double elements in an array to get a 
+      //new array
 
       //using accumulator pattern to obtain an array
       //of doubled values
+      const nums = [1, 1, 3];
       const numsDoubled = [];
 
       for (let i = 0; i < nums.length; i++) {
@@ -81,11 +181,42 @@
       console.log(numsDoubled);
 
 
+      //creating a function to get an array doubled
+      function doubleArray(nums) {
+
+        const numsDoubled = [];
+
+        for (let i = 0; i < nums.length; i++) {
+          const num = nums[i];
+          numsDoubled.push(num * 2);
+        }
+
+        return numsDoubled;
+      }
+
+      console.log(doubleArray([2, 2, 3]));
 
 
+      //creating a function with exiting the loop early with a return
+      function doubleArray2(nums) {
 
+        const numsDoubled = [];
 
+        for (let i = 0; i < nums.length; i++) {
+          const num = nums[i];
 
+          //if we see the number 0, stop the loop early
+          if (num === 0) {
+            return numsDoubled;
+          }
+
+          numsDoubled.push(num * 2);
+        }
+
+        return numsDoubled;
+      }
+
+      console.log(doubleArray2([2, 2, 0, 5]));
 
 
 
