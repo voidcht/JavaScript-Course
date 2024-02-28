@@ -24,13 +24,12 @@ function renderToDoList(){
     const {name, dueDate} = todoObject; 
     //const dueDate = todoObject.dueDate;
     const html = `
-      <p>
-        ${name} ${dueDate}
-        <button onClick="
-          todoList.splice(${i},1);
-          renderToDoList();
-        "> Delete </button> 
-      </p>
+      <div>${name}</div>
+      <div>${dueDate}</div>
+      <button class="delete-todo-button" onClick="
+        todoList.splice(${i},1);
+        renderToDoList();
+      "> Delete </button> 
     `;
 
     //accumulator string - to combine all the <p> items for to do list items
