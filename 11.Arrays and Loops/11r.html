@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11r - Arrays and Loops Exercises</title>
+  </head>
+
+  <body>
+    <script>
+      //to remove 'egg' word from an array
+      function removeEgg(foods) {
+        const resultArray = [];
+
+        for (let i = 0; i < foods.length; i++) {
+          //if the element is 'egg' it will be skipped
+          //without adding into the new array.
+          if (foods[i] === 'egg') {
+            continue;
+          }
+          resultArray.push(foods[i]);
+        }
+
+        console.log(resultArray);
+      }
+
+      removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']);
+
+
+      //11s Exercise
+      //to only remove the first two 'egg' words from an array
+      function removeFirstTwoEgg(foods) {
+        const resultArray = [];
+        //to count how many 'egg' words
+        let count = 0;
+
+        for (let i = 0; i < foods.length; i++) {
+          //if the element is 'egg' it will be skipped
+          //without adding into the new array.
+          //skipped only if the count is less than 2
+          //otherwise 'egg' added to the result array.
+          if (foods[i] === 'egg' && count < 2) {
+            count++;
+            continue;
+
+          }
+          resultArray.push(foods[i]);
+        }
+
+        console.log(resultArray);
+      }
+
+      removeFirstTwoEgg(['egg', 'apple', 'egg', 'egg', 'ham']);
+
+
+
+      //11t Exercise
+      //reverse the array first and remove first two 'egg' words as previously did first.
+      //then push into the result array other elements
+      //reverse the result array at the end
+
+      //to only remove the last two 'egg' words from an array 
+      //- using the 'reverse()' method of arrays
+      function removeLastTwoEgg(foods) {
+        const reverseArray = foods.reverse();
+        const resultArray = [];
+        //to count how many 'egg' words
+        let count = 0;
+
+        for (let i = 0; i < reverseArray.length; i++) {
+          //if the element is 'egg' it will be skipped
+          //without adding into the new array.
+          //skipped only if the count is less than 2
+          //otherwise 'egg' added to the result array.
+          if (reverseArray[i] === 'egg' && count < 2) {
+            count++;
+            continue;
+
+          }
+          resultArray.push(reverseArray[i]);
+        }
+
+        return resultArray.reverse();
+      }
+
+      console.log(removeLastTwoEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+    </script>
+  </body>
+
+</html>
