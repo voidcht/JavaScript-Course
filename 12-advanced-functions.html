@@ -9,6 +9,11 @@
 
   <body>
     <script>
+
+      //hoisting feature of the function shortcut syntax
+      //we can call the function before creating it
+      greeting();
+
       function greeting() {
         console.log('hello');
       }
@@ -29,6 +34,11 @@
 
       //run the function with variable name
       function1();
+
+      //actucal function syntax
+      var greeting2 = function () {
+        console.log('hello');
+      }
 
     </script>
 
