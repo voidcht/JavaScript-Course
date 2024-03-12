@@ -9,6 +9,7 @@
 
   <body>
     <script>
+      //FUNCTION IS A VALUE IN JS
 
       //hoisting feature of the function shortcut syntax
       //we can call the function before creating it
@@ -21,6 +22,8 @@
       greeting();
 
       const num = 2;
+
+      //1. saving a function in a variable
 
       const function1 = function () {
         console.log('hello2');
@@ -39,6 +42,50 @@
       var greeting2 = function () {
         console.log('hello');
       }
+
+      //2. saving a function in an object
+      // const object1 = {
+      //   num: 2,
+      //   fun: function greeting() {
+      //     console.log('hello3');
+      //   }
+      // };
+
+      //with anonymous function
+      const object1 = {
+        num: 2,
+        fun: function () {
+          console.log('hello3');
+        }
+      };
+
+      //calling the function of the object using
+      //dot-notation
+      object1.fun();
+
+      //3. passing a function into a function (as a value)
+      //passing a normal value
+      function display(param) {
+        console.log(param);
+      }
+
+      display(2);
+
+      //passing a function
+      //first create the function to pass a function as a parameter
+      function run(param) {
+        //since the parameter is a function, we can call it.
+        param();
+      }
+
+      //then we are passing a function as the parameter for the 'run' function
+      run(function () {
+        console.log('hello4');
+      });
+
+
+      //a JS Feature - setTimeout() 
+
 
     </script>
 
