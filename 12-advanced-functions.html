@@ -84,8 +84,19 @@
       });
 
 
-      //a JS Feature - setTimeout() 
+      //a JS Feature - setTimeout() - an asynchronous code
+      setTimeout(function () {
+        console.log('timeout');
+      }, 3000);
 
+      console.log('next line');
+
+      //setInterval() - another asynchronous code - but keeps running
+      setInterval(function () {
+        console.log('interval');
+      }, 3000);
+
+      console.log('next line 2');
 
     </script>
 
