@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Exercises - Advanced Functions</title>
+  </head>
+
+  <body>
+
+    <button class="js-start-button" onclick="
+      changeText(); 
+    ">Start</button>
+
+    <br>
+    <br>
+
+    <!--button for the exercise 12e-->
+    <button onclick="
+      displayMessage();
+    ">Add to cart</button>
+
+    <div class="js-message-box"></div>
+
+
+    <script>
+      //12a - saving a function in a variable (because functions are values in JS)
+      const add = function () {
+        console.log(2 + 3);
+      };
+
+      add();
+      add();
+
+
+      //12b - function that takes a function as a parameter
+      function runTwice(fun) {
+        fun();
+        fun();
+      }
+
+
+      runTwice(function () {
+        console.log('12b');
+      });
+
+      runTwice(add);
+
+
+      //12c - a button, upon clicking, after 1 second, the text is changed
+      // function changeText() {
+
+      //   const buttonElement = document.querySelector('.js-start-button');
+
+      //   setTimeout(function () {
+      //     buttonElement.innerHTML = 'Finished';
+      //   }, 1000);
+      // }
+
+      //12d - the text in the button changes immediately to 'Loading' before
+      //changing into 'Finished' after 1 second
+      function changeText() {
+
+        const buttonElement = document.querySelector('.js-start-button');
+
+        //changing the text to 'Loading..' immediately
+        buttonElement.innerHTML = 'Loading...';
+
+        setTimeout(function () {
+          buttonElement.innerHTML = 'Finished';
+        }, 1000);
+
+      }
+
+
+      //12e - create a button to display a message below it when clicked and remove the
+      //message after 2 seconds
+      // function displayMessage() {
+
+      //   const messageElement = document.querySelector('.js-message-box');
+      //   messageElement.innerHTML = '<br> Added';
+
+      //   setTimeout(function () {
+      //     messageElement.innerHTML = null;
+      //   }, 2000);
+
+      // }
+
+      //12f - challenge exercises
+      //continuing from 12e, notice that if we click the button after 1-1.5 seconds
+      //the message disappears quickly according to the already running
+      //setTimeout() function, make the function wait for 2 seconds again after clicking
+      //cancel the previous setTimeout() using clearTimeout()
+
+
+      //we need to catch the ID returned by the setTimeout() to clear timeout using
+      //clearTimeout() function
+
+      let timeoutID;
+
+      function displayMessage() {
+        const messageElement = document.querySelector('.js-message-box');
+        messageElement.innerHTML = '<br> Added';
+
+
+
+        //cancel the previous timeout first (if exists) so the timeout can start again
+        clearTimeout(timeoutID);
+
+        //saving the ID returned
+        timeoutID = setTimeout(function () {
+          messageElement.innerHTML = null;
+        }, 2000);
+
+
+      }
+
+
+
+
+    </script>
+  </body>
+
+</html>

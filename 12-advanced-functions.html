@@ -125,6 +125,23 @@
         console.log(index);
       });
 
+
+      //forEach() can't have 'continue' keyword to skip to next iteration
+      //instead 'return' keyword can be used.
+      //eg: skip if the value is 'wash dishes'( to avoid display it in the console),
+      [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+      ].forEach(function (value, index) {
+        //to skip an iteration- use of 'return' statement
+        if (value === 'wash dishes') {
+          return; //return statement will end this function early and go on to the next
+        }
+
+        console.log(value);
+        console.log(index);
+      });
     </script>
 
   </body>
