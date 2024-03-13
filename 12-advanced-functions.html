@@ -9,94 +9,121 @@
 
   <body>
     <script>
-      //FUNCTION IS A VALUE IN JS
+      // //FUNCTION IS A VALUE IN JS
 
-      //hoisting feature of the function shortcut syntax
-      //we can call the function before creating it
-      greeting();
+      // //hoisting feature of the function shortcut syntax
+      // //we can call the function before creating it
+      // greeting();
 
-      function greeting() {
-        console.log('hello');
-      }
+      // function greeting() {
+      //   console.log('hello');
+      // }
 
-      greeting();
+      // greeting();
 
-      const num = 2;
+      // const num = 2;
 
-      //1. saving a function in a variable
+      // //1. saving a function in a variable
 
-      const function1 = function () {
-        console.log('hello2');
-      };
+      // const function1 = function () {
+      //   console.log('hello2');
+      // };
 
-      //check the value of the function
-      console.log(function1);
+      // //check the value of the function
+      // console.log(function1);
 
-      //type of the variable containing the function
-      console.log(typeof function1);
+      // //type of the variable containing the function
+      // console.log(typeof function1);
 
-      //run the function with variable name
-      function1();
+      // //run the function with variable name
+      // function1();
 
-      //actucal function syntax
-      var greeting2 = function () {
-        console.log('hello');
-      }
+      // //actucal function syntax
+      // var greeting2 = function () {
+      //   console.log('hello');
+      // }
 
-      //2. saving a function in an object
+      // //2. saving a function in an object
+      // // const object1 = {
+      // //   num: 2,
+      // //   fun: function greeting() {
+      // //     console.log('hello3');
+      // //   }
+      // // };
+
+      // //with anonymous function
       // const object1 = {
       //   num: 2,
-      //   fun: function greeting() {
+      //   fun: function () {
       //     console.log('hello3');
       //   }
       // };
 
-      //with anonymous function
-      const object1 = {
-        num: 2,
-        fun: function () {
-          console.log('hello3');
-        }
-      };
+      // //calling the function of the object using
+      // //dot-notation
+      // object1.fun();
 
-      //calling the function of the object using
-      //dot-notation
-      object1.fun();
+      // //3. passing a function into a function (as a value)
+      // //passing a normal value
+      // function display(param) {
+      //   console.log(param);
+      // }
 
-      //3. passing a function into a function (as a value)
-      //passing a normal value
-      function display(param) {
-        console.log(param);
-      }
+      // display(2);
 
-      display(2);
+      // //passing a function
+      // //first create the function to pass a function as a parameter
+      // function run(param) {
+      //   //since the parameter is a function, we can call it.
+      //   param();
+      // }
 
-      //passing a function
-      //first create the function to pass a function as a parameter
-      function run(param) {
-        //since the parameter is a function, we can call it.
-        param();
-      }
+      // //then we are passing a function as the parameter for the 'run' function
+      // run(function () {
+      //   console.log('hello4');
+      // });
 
-      //then we are passing a function as the parameter for the 'run' function
-      run(function () {
-        console.log('hello4');
+
+      // //a JS Feature - setTimeout() - an asynchronous code
+      // setTimeout(function () {
+      //   console.log('timeout');
+      // }, 3000);
+
+      // console.log('next line');
+
+      // //setInterval() - another asynchronous code - but keeps running
+      // setInterval(function () {
+      //   console.log('interval');
+      // }, 3000);
+
+      // console.log('next line 2');
+
+
+
+      //advanced functions - another way to loop through an array
+
+      //let's create an array first
+      //then we use the forEach() method of the array using the dot notation
+      //as the paramter for the forEach() method, we have to send a function
+      //with a parameter name which contains each value of the array 
+      [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+      ].forEach(function (value) {
+        console.log(value);
       });
 
 
-      //a JS Feature - setTimeout() - an asynchronous code
-      setTimeout(function () {
-        console.log('timeout');
-      }, 3000);
-
-      console.log('next line');
-
-      //setInterval() - another asynchronous code - but keeps running
-      setInterval(function () {
-        console.log('interval');
-      }, 3000);
-
-      console.log('next line 2');
+      //using a second parameter for the function in the forEach() method - index
+      [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+      ].forEach(function (value, index) {
+        console.log(value);
+        console.log(index);
+      });
 
     </script>
 
