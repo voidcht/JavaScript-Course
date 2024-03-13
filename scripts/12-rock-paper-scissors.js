@@ -11,15 +11,30 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 //call to update the score - instead of above code 
 updateScoreElement();
 
-
-
+let isAutoPlaying = false;
+let intervalID;
 
 function autoPlay(){
-  //to play the game every second 
-  setInterval(function() {
-    const playerMove = pickComputerMove();
-    playGame(playerMove);
-  }, 1000);
+
+  //if not playing, let's start the autoplay
+  if(!isAutoPlaying){
+
+    //to play the game every second 
+    //get the id value returned by the function
+    intervalID = setInterval(function() {
+      const playerMove = pickComputerMove();
+      playGame(playerMove);
+    }, 1000);
+
+    //after start playing, set the flag to true
+    isAutoPlaying = true;
+  }else {
+    //to stop auto playing - using the id
+    clearInterval(intervalID);
+    //changing the flag value
+    isAutoPlaying = false;
+  }
+  
 }
 
 
