@@ -34,21 +34,7 @@
 
 
     <button class="reset-button" onclick="
-      score.wins = 0;
-      score.losses = 0;
-      score.ties = 0;
-      
-      updateScoreElement();
-      localStorage.removeItem('score');
-
-      //to clear the result
-        document.querySelector('.js-result')
-          .innerHTML =null;
-
-        //to clear the moves selected
-        document.querySelector('.js-moves')
-          .innerHTML = null;
-
+      resetScore();
     "> Reset Score</button>
 
     <button class="auto-play-button" onclick="

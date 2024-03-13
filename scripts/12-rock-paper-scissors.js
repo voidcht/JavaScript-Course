@@ -133,3 +133,24 @@ function pickComputerMove() {
   return computermove;
 
 }
+
+
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  
+  //change the score on the page
+  updateScoreElement();
+  //remove score saved 
+  localStorage.removeItem('score');
+
+//clear results on page
+  //to clear the result
+    document.querySelector('.js-result')
+      .innerHTML =null;
+
+    //to clear the moves selected
+    document.querySelector('.js-moves')
+      .innerHTML = null;
+}
