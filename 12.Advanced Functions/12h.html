@@ -20,27 +20,64 @@
       //variable for no of messages
       let messages = 2;
 
-      setInterval(function () {
+      //variable to hold the ID of the setInterval()
+      let intervalID;
+
+      //to keep track of whether or not to display notification
+      let isDisplayNotification;
+
+      //updateTitle when the page loads first
+      updateTitle();
 
 
 
-        let text = document.title;
-        //console.log(text);
 
-        if (text != 'App') {
-          document.title = 'App';
-        } else {
-          document.title = `(${messages}) New messages`;
+      function updateTitle() {
+
+        //if we are already displaying the notification
+        //we want to stop this function because we don't want
+        //two interval functions to run at the same time
+
+        if (isDisplayNotification) {
+          //to exit the function
+          return;
         }
-      }, 1000);
 
+        intervalID = setInterval(function () {
+          if (document.title != 'App') {
+            document.title = 'App';
+          } else {
+            document.title = `(${messages}) New messages`;
+          }
+          console.log(document.title);
+        }, 1000);
+
+        //since we started displaying the notification
+        isDisplayNotification = true;
+
+      }
 
       function increaseMessages() {
         messages++;
+        updateTitle();
       }
 
       function decreaseMessages() {
-        messages--;
+
+        if (messages > 0) {
+          messages--;
+        }
+
+        if (messages === 0) {
+          //stop the displaying notification
+
+          clearInterval(intervalID);
+
+          isDisplayNotification = false;
+
+          document.title = 'App';
+        }
+
       }
 
     </script>
