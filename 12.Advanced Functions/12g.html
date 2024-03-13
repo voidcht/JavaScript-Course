@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(2) New messages</title>
+  </head>
+
+  <body>
+    <script>
+      //12g - changing the title of the page continously each 1 second
+      setInterval(function () {
+
+        //you can get 'title' directly without querySelector() function
+        let text = document.title;
+        //console.log(text);
+
+        if (text === '(2) New messages') {
+          document.title = 'App';
+        } else {
+          document.title = '(2) New messages';
+        }
+      }, 1000);
+    </script>
+  </body>
+
+</html>

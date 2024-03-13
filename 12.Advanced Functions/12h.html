@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+  </head>
+
+  <body>
+    <button onclick="
+      increaseMessages();
+      ">Add</button>
+    <button onclick="
+      decreaseMessages();
+    ">Remove</button>
+    <script>
+      //12h - save the no of messages in a variable and display in the title
+
+      //variable for no of messages
+      let messages = 2;
+
+      setInterval(function () {
+
+
+
+        let text = document.title;
+        //console.log(text);
+
+        if (text != 'App') {
+          document.title = 'App';
+        } else {
+          document.title = `(${messages}) New messages`;
+        }
+      }, 1000);
+
+
+      function increaseMessages() {
+        messages++;
+      }
+
+      function decreaseMessages() {
+        messages--;
+      }
+
+    </script>
+  </body>
+
+</html>
