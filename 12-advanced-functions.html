@@ -100,40 +100,107 @@
 
 
 
-      //advanced functions - another way to loop through an array
+      //   //advanced functions - another way to loop through an array
 
-      //let's create an array first
-      //then we use the forEach() method of the array using the dot notation
-      //as the paramter for the forEach() method, we have to send a function
-      //with a parameter name which contains each value of the array 
-      [
-        'make dinner',
-        'wash dishes',
-        'watch youtube'
-      ].forEach(function (value) {
-        console.log(value);
-      });
+      //   //let's create an array first
+      //   //then we use the forEach() method of the array using the dot notation
+      //   //as the paramter for the forEach() method, we have to send a function
+      //   //with a parameter name which contains each value of the array
+      //   [
+      //     'make dinner',
+      //     'wash dishes',
+      //     'watch youtube'
+      //   ].forEach(function (value) {
+      //     console.log(value);
+      //   });
 
 
-      //using a second parameter for the function in the forEach() method - index
+      //   //using a second parameter for the function in the forEach() method - index
+      //   [
+      //     'make dinner',
+      //     'wash dishes',
+      //     'watch youtube'
+      //   ].forEach(function (value, index) {
+      //     console.log(value);
+      //     console.log(index);
+      //   });
+
+
+      //   //forEach() can't have 'continue' keyword to skip to next iteration
+      //   //instead 'return' keyword can be used.
+      //   //eg: skip if the value is 'wash dishes'( to avoid display it in the console),
+      //   [
+      //     'make dinner',
+      //     'wash dishes',
+      //     'watch youtube'
+      //   ].forEach(function (value, index) {
+      //     //to skip an iteration- use of 'return' statement
+      //     if (value === 'wash dishes') {
+      //       return; //return statement will end this function early and go on to the next
+      //     }
+
+      //     console.log(value);
+      //     console.log(index);
+      //   });
+
+
+      //ARROW FUNCTIONS - Advanced functions - part 2
+      const arrowFunction = () => {
+        console.log('hello');
+      };
+
+      //calling the function using the variable name
+      arrowFunction();
+
+      //Let's compare regular function with an arrow function
+      const regularFunction = function () {
+        console.log('hello');
+      };
+
+
+      //arrow function with a parameter
+      const arrowFunction2 = (param) => {
+        console.log('hello');
+      };
+
+
+      //arrow fucntion with return statment -works the same way
+      const arrowFunction4 = (param1, param2) => {
+        console.log('hello');
+        return 5;
+      };
+
+      //arrow functions have shortcuts than regular functions
+      const oneParam = (param) => {
+        console.log(param + 1);
+      };
+
+      //calling the function
+      oneParam(2);
+
+
+      const oneLine = () => {
+        return 2 + 3;
+      };
+
+      //put into a single line
+      // const oneLinee = () => { return 2 + 3; }
+      // const oneLinee = () =>  return 2 + 3;
+      const oneLinee = () => 2 + 3;
+
+      console.log(oneLine());  //5
+      console.log(oneLinee());  //5
+
+
+      //Practice using Arrow functions
+
+      //previous code
       [
         'make dinner',
         'wash dishes',
         'watch youtube'
       ].forEach(function (value, index) {
-        console.log(value);
-        console.log(index);
-      });
 
-
-      //forEach() can't have 'continue' keyword to skip to next iteration
-      //instead 'return' keyword can be used.
-      //eg: skip if the value is 'wash dishes'( to avoid display it in the console),
-      [
-        'make dinner',
-        'wash dishes',
-        'watch youtube'
-      ].forEach(function (value, index) {
         //to skip an iteration- use of 'return' statement
         if (value === 'wash dishes') {
           return; //return statement will end this function early and go on to the next
@@ -142,6 +209,22 @@
         console.log(value);
         console.log(index);
       });
+
+      //new code with an arrow function
+      [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+      ].forEach((value, index) => {
+        //remove 'function' and add '=>' just after brackets
+        if (value === 'wash dishes') {
+          return;
+        }
+
+        console.log(value);
+        console.log(index + 'hi');
+      });
+
     </script>
 
   </body>
