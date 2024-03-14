@@ -18,7 +18,9 @@ function renderToDoList(){
 
 //using forEach() method to loop through the array
 //instead of for loop (as below)
-  todoList.forEach(function(todoObject,index){
+  //todoList.forEach(function(todoObject,index){
+    //After adding an arrow function
+  todoList.forEach((todoObject,index) => {
     //same code as used in the for-loop
     //todoList[i] = todoObject now and i  = index
     
