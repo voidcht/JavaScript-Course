@@ -40,6 +40,36 @@ function autoPlay(){
   
 }
 
+//code for addEventListeners for buttons used
+//for 3 move buttons
+document.querySelector('.js-rock-button')
+  .addEventListener('click', () => {
+    playGame('rock');
+  });
+
+document.querySelector('.js-paper-button')
+  .addEventListener('click', () => {
+    playGame('paper');
+  });
+
+document.querySelector('.js-scissors-button')
+  .addEventListener('click', () => {
+    playGame('scissors');
+  });
+
+//for reset button
+document.querySelector('.js-reset-button')
+  .addEventListener('click', () => {
+    resetScore();
+  });
+
+//for auto play button
+document.querySelector('.js-auto-play-button')
+  .addEventListener('click', () => {
+    autoPlay();
+  });
+  
+
 
 function playGame(playerMove) {
   const computermove = pickComputerMove();
