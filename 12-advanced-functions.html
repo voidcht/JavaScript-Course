@@ -8,7 +8,13 @@
   </head>
 
   <body>
+
+    <button class="js-button" onclick=""> Click </button>
+
+
     <script>
+
+      /* ******************************************************************   */
       // //FUNCTION IS A VALUE IN JS
 
       // //hoisting feature of the function shortcut syntax
@@ -83,6 +89,7 @@
       //   console.log('hello4');
       // });
 
+      /* ******************************************************************   */
 
       // //a JS Feature - setTimeout() - an asynchronous code
       // setTimeout(function () {
@@ -98,7 +105,7 @@
 
       // console.log('next line 2');
 
-
+      /* ******************************************************************   */
 
       //   //advanced functions - another way to loop through an array
 
@@ -143,87 +150,122 @@
       //     console.log(index);
       //   });
 
-
-      //ARROW FUNCTIONS - Advanced functions - part 2
-      const arrowFunction = () => {
-        console.log('hello');
-      };
-
-      //calling the function using the variable name
-      arrowFunction();
-
-      //Let's compare regular function with an arrow function
-      const regularFunction = function () {
-        console.log('hello');
-      };
+      /* ******************************************************************   */
 
 
-      //arrow function with a parameter
-      const arrowFunction2 = (param) => {
-        console.log('hello');
-      };
+      // //ARROW FUNCTIONS - Advanced functions - part 2
+      // const arrowFunction = () => {
+      //   console.log('hello');
+      // };
+
+      // //calling the function using the variable name
+      // arrowFunction();
+
+      // //Let's compare regular function with an arrow function
+      // const regularFunction = function () {
+      //   console.log('hello');
+      // };
 
 
-      //arrow fucntion with return statment -works the same way
-      const arrowFunction4 = (param1, param2) => {
-        console.log('hello');
-        return 5;
-      };
-
-      //arrow functions have shortcuts than regular functions
-      const oneParam = (param) => {
-        console.log(param + 1);
-      };
-
-      //calling the function
-      oneParam(2);
+      // //arrow function with a parameter
+      // const arrowFunction2 = (param) => {
+      //   console.log('hello');
+      // };
 
 
-      const oneLine = () => {
-        return 2 + 3;
-      };
+      // //arrow fucntion with return statment -works the same way
+      // const arrowFunction4 = (param1, param2) => {
+      //   console.log('hello');
+      //   return 5;
+      // };
 
-      //put into a single line
-      // const oneLinee = () => { return 2 + 3; }
-      // const oneLinee = () =>  return 2 + 3;
-      const oneLinee = () => 2 + 3;
+      // //arrow functions have shortcuts than regular functions
+      // const oneParam = (param) => {
+      //   console.log(param + 1);
+      // };
 
-      console.log(oneLine());  //5
-      console.log(oneLinee());  //5
+      // //calling the function
+      // oneParam(2);
 
 
-      //Practice using Arrow functions
+      // const oneLine = () => {
+      //   return 2 + 3;
+      // };
 
-      //previous code
-      [
-        'make dinner',
-        'wash dishes',
-        'watch youtube'
-      ].forEach(function (value, index) {
+      // //put into a single line
+      // // const oneLinee = () => { return 2 + 3; }
+      // // const oneLinee = () =>  return 2 + 3;
+      // const oneLinee = () => 2 + 3;
 
-        //to skip an iteration- use of 'return' statement
-        if (value === 'wash dishes') {
-          return; //return statement will end this function early and go on to the next
-        }
+      // console.log(oneLine());  //5
+      // console.log(oneLinee());  //5
 
-        console.log(value);
-        console.log(index);
+      /* ******************************************************************   */
+
+      // //Practice using Arrow functions
+
+      // //previous code
+      // [
+      //   'make dinner',
+      //   'wash dishes',
+      //   'watch youtube'
+      // ].forEach(function (value, index) {
+
+      //   //to skip an iteration- use of 'return' statement
+      //   if (value === 'wash dishes') {
+      //     return; //return statement will end this function early and go on to the next
+      //   }
+
+      //   console.log(value);
+      //   console.log(index);
+      // });
+
+      // //new code with an arrow function
+      // [
+      //   'make dinner',
+      //   'wash dishes',
+      //   'watch youtube'
+      // ].forEach((value, index) => {
+      //   //remove 'function' and add '=>' just after brackets
+      //   if (value === 'wash dishes') {
+      //     return;
+      //   }
+
+      //   console.log(value);
+      //   console.log(index + 'hi');
+      // });
+
+      /* ******************************************************************   */
+
+      // //Using arrow functions INSIDE AN OBJECT
+
+      // //let's create a new object
+      // const object2 = {
+      //   //arrow function
+      //   method: () => {
+
+      //   },
+      //   //shorthand function for objects
+      //   method() {
+
+      //   }
+      // };
+
+      /* ******************************************************************   */
+
+      //Another improvement for our projects
+      const buttonElement = document.querySelector('.js-button');
+
+      buttonElement.addEventListener('click', () => {
+        console.log('click');
       });
 
-      //new code with an arrow function
-      [
-        'make dinner',
-        'wash dishes',
-        'watch youtube'
-      ].forEach((value, index) => {
-        //remove 'function' and add '=>' just after brackets
-        if (value === 'wash dishes') {
-          return;
-        }
-
-        console.log(value);
-        console.log(index + 'hi');
+      //another click event - advantage 1 - multiple event listeners
+      buttonElement.addEventListener('click', () => {
+        console.log('click2');
       });
+
+
 
     </script>
 
