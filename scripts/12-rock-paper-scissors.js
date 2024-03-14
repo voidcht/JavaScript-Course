@@ -21,7 +21,10 @@ function autoPlay(){
 
     //to play the game every second 
     //get the id value returned by the function
-    intervalID = setInterval(function() {
+    // intervalID = setInterval(function() {
+      //using an arrow function
+      intervalID = setInterval(() => {
+
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
