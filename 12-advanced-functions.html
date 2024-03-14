@@ -265,7 +265,20 @@
         console.log('click2');
       });
 
+      //removing an event listener - advantage 2 (over 'onclick' attribute)
 
+      //another click event - need to remove later 
+      // therefore, the function passed has to be saved in a variable so that we can 
+      //mention the exact function to remove later
+      const eventListener = () => {
+        console.log('clickToRemove');
+      };
+
+      //use the variable for the function to pass the function
+      buttonElement.addEventListener('click', eventListener);
+
+      //now, to remove the function, we can use the same variable
+      buttonElement.removeEventListener('click', eventListener);
 
     </script>
 
