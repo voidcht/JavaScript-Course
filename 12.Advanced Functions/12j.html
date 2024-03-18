@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12j - Exercises Advanced Functions</title>
+  </head>
+
+  <body>
+    <script>
+      //an arrow function - 12j and 12k
+      const multiply = (num1, num2) => num1 * num2;
+
+      console.log(multiply(2, 3));
+      console.log(multiply(7, 10));
+
+
+      //12l - countPositive() takes an array and returns how many positive numbers
+      function countPositive(nums) {
+        let noPositive = 0;
+        nums.forEach(element => {
+          if (element > 0)
+            noPositive++;
+        });
+
+        return noPositive;
+      }
+
+      console.log(countPositive([1, -3, 5]));
+      console.log(countPositive([-2, 3, -5, 7, 10]));
+
+      //12m - addNum( array, num) - returns an array increased by num
+      function addNum(array, num) {
+        return array.map((value) => {
+          return value + num;
+        });
+      }
+
+      //using one line shortcut
+      function addNum1(array, num) {
+        return array.map(value => value + num);
+      }
+
+      console.log(addNum1([1, 2, 3], 2));
+      console.log(addNum1([-2, -1, 0, 99], 2));
+
+
+      //12n- removeEggs(foods) using filter()
+      function removeEggs(foods) {
+        return foods.filter(value => {
+          if (value != 'egg')
+            return true;
+          //another way
+          //return value !== 'egg';
+        });
+      }
+
+      // console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      //12o - only remove first 2 eggs from the array - use filter()
+      function removeEggsFirstTwo(foods) {
+        let positionEgg = 0;
+
+        return foods.filter(value => {
+          if (value === 'egg' && positionEgg < 2) {
+            positionEgg++;
+            return false;
+          } else {
+            return true;
+          }
+        });
+      }
+
+      console.log(removeEggsFirstTwo(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+
+    </script>
+  </body>
+
+</html>
