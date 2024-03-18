@@ -29,10 +29,7 @@ function renderToDoList(){
     const html = `
     <div>${name}</div>
     <div>${dueDate}</div>
-    <button class="delete-todo-button" onClick="
-      todoList.splice(${index},1);
-      renderToDoList();
-    "> Delete </button> 
+    <button class="delete-todo-button js-delete-todo-button"> Delete </button> 
   `;
 
   todoListHTML += html;
@@ -63,17 +60,37 @@ function renderToDoList(){
   // //end of for loop
 
 
-
-
-
-
-
-
   //display accumulator result
   console.log(todoListHTML);
   
-  document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+  document.querySelector('.js-todo-list')
+    .innerHTML = todoListHTML;
+
+    //event listeners for Delete buttons
+  //has to get all Delete buttons using querySelectorAll() method
+  //and go through each element returned to set event listeners for each
+  document.querySelectorAll('.js-delete-todo-button')
+    .forEach((deleteButton, index)=>{
+      deleteButton.addEventListener('click', () => {
+        todoList.splice(index,1);
+        renderToDoList();
+      })
+    });
+    
 }
+
+
+//event lister for Add button
+document.querySelector('.js-add-todo-button')
+  .addEventListener('click', ()=>{
+  addTodo();
+});
+
+
+
+
+
+
 
 
 
