@@ -49,14 +49,25 @@
 
 
       //12c - a button, upon clicking, after 1 second, the text is changed
-      // function changeText() {
+      function changeText() {
 
-      //   const buttonElement = document.querySelector('.js-start-button');
+        const buttonElement = document.querySelector('.js-start-button');
 
-      //   setTimeout(function () {
-      //     buttonElement.innerHTML = 'Finished';
-      //   }, 1000);
-      // }
+        // setTimeout(function () {
+        //   buttonElement.innerHTML = 'Finished';
+        // }, 1000);
+
+        //Switching to an arrow function
+        setTimeout(() => {
+          buttonElement.innerHTML = 'Finished';
+        }, 1000);
+
+
+
+      }
+
+
+
 
       //12d - the text in the button changes immediately to 'Loading' before
       //changing into 'Finished' after 1 second
@@ -67,25 +78,35 @@
         //changing the text to 'Loading..' immediately
         buttonElement.innerHTML = 'Loading...';
 
-        setTimeout(function () {
+        // setTimeout(function () {
+        //   buttonElement.innerHTML = 'Finished';
+        // }, 1000);
+
+        //Swiching to an arrow function
+        setTimeout(() => {
           buttonElement.innerHTML = 'Finished';
         }, 1000);
 
       }
 
 
-      //12e - create a button to display a message below it when clicked and remove the
-      //message after 2 seconds
-      // function displayMessage() {
+      // 12e - create a button to display a message below it when clicked and remove the
+      // message after 2 seconds
+      function displayMessage() {
 
-      //   const messageElement = document.querySelector('.js-message-box');
-      //   messageElement.innerHTML = '<br> Added';
+        const messageElement = document.querySelector('.js-message-box');
+        messageElement.innerHTML = '<br> Added';
 
-      //   setTimeout(function () {
-      //     messageElement.innerHTML = null;
-      //   }, 2000);
+        // setTimeout(function () {
+        //   messageElement.innerHTML = null;
+        // }, 2000);
 
-      // }
+        //Switching to an arrow function
+        setTimeout(() => {
+          messageElement.innerHTML = null;
+        }, 2000);
+
+      }
 
       //12f - challenge exercises
       //continuing from 12e, notice that if we click the button after 1-1.5 seconds
@@ -109,10 +130,14 @@
         clearTimeout(timeoutID);
 
         //saving the ID returned
-        timeoutID = setTimeout(function () {
+        // timeoutID = setTimeout(function () {
+        //   messageElement.innerHTML = null;
+        // }, 2000);
+
+        //Switching to an arrow function
+        timeoutID = setTimeout(() => {
           messageElement.innerHTML = null;
         }, 2000);
-
 
       }
 

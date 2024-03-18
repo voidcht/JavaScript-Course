@@ -43,7 +43,9 @@
           return;
         }
 
-        intervalID = setInterval(function () {
+        // intervalID = setInterval(function () {
+        //Switching to an arrow function
+        intervalID = setInterval(() => {
           if (document.title != 'App') {
             document.title = 'App';
           } else {
