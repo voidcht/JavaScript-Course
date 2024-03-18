@@ -61,7 +61,7 @@ function renderToDoList(){
 
 
   //display accumulator result
-  console.log(todoListHTML);
+  //console.log(todoListHTML);
   
   document.querySelector('.js-todo-list')
     .innerHTML = todoListHTML;
@@ -72,10 +72,13 @@ function renderToDoList(){
   document.querySelectorAll('.js-delete-todo-button')
     .forEach((deleteButton, index)=>{
       deleteButton.addEventListener('click', () => {
+        console.log(index);
         todoList.splice(index,1);
         renderToDoList();
       })
     });
+
+   
     
 }
 
