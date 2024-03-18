@@ -8,12 +8,8 @@
   </head>
 
   <body>
-    <button onclick="
-      increaseMessages();
-      ">Add</button>
-    <button onclick="
-      decreaseMessages();
-    ">Remove</button>
+    <button class="js-add-button">Add</button>
+    <button class="js-remove-button">Remove</button>
     <script>
       //12h - save the no of messages in a variable and display in the title
 
@@ -58,6 +54,21 @@
         isDisplayNotification = true;
 
       }
+
+      //Updating with add event listeners for buttons
+      //for add button
+      const addButtonElement = document.querySelector('.js-add-button');
+      addButtonElement.addEventListener('click', () => {
+        increaseMessages();
+      });
+
+      //for remove button
+      const removeButtonElement = document.querySelector('.js-remove-button');
+      removeButtonElement.addEventListener('click', () => {
+        decreaseMessages();
+      });
+
+
 
       function increaseMessages() {
         messages++;

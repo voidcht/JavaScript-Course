@@ -9,17 +9,13 @@
 
   <body>
 
-    <button class="js-start-button" onclick="
-      changeText(); 
-    ">Start</button>
+    <button class="js-start-button">Start</button>
 
     <br>
     <br>
 
     <!--button for the exercise 12e-->
-    <button onclick="
-      displayMessage();
-    ">Add to cart</button>
+    <button class="js-button-add-to-cart">Add to cart</button>
 
     <div class="js-message-box"></div>
 
@@ -49,22 +45,30 @@
 
 
       //12c - a button, upon clicking, after 1 second, the text is changed
-      function changeText() {
+      //updating with addEventListener() method instead of 'onclick' attribute
+      const startButtonElement = document.querySelector('.js-start-button');
 
-        const buttonElement = document.querySelector('.js-start-button');
-
-        // setTimeout(function () {
-        //   buttonElement.innerHTML = 'Finished';
-        // }, 1000);
-
-        //Switching to an arrow function
-        setTimeout(() => {
-          buttonElement.innerHTML = 'Finished';
-        }, 1000);
+      //adding event listener for click event of start button
+      startButtonElement.addEventListener('click', () => {
+        changeText();
+      });
 
 
 
-      }
+      // function changeText() {
+
+      //   //const buttonElement = document.querySelector('.js-start-button');
+
+      //   // setTimeout(function () {
+      //   //   buttonElement.innerHTML = 'Finished';
+      //   // }, 1000);
+
+      //   //Switching to an arrow function
+      //   setTimeout(() => {
+      //     startButtonElement.innerHTML = 'Finished';
+      //   }, 1000);
+
+      // }
 
 
 
@@ -73,10 +77,10 @@
       //changing into 'Finished' after 1 second
       function changeText() {
 
-        const buttonElement = document.querySelector('.js-start-button');
+        // const buttonElement = document.querySelector('.js-start-button');
 
         //changing the text to 'Loading..' immediately
-        buttonElement.innerHTML = 'Loading...';
+        startButtonElement.innerHTML = 'Loading...';
 
         // setTimeout(function () {
         //   buttonElement.innerHTML = 'Finished';
@@ -84,7 +88,7 @@
 
         //Swiching to an arrow function
         setTimeout(() => {
-          buttonElement.innerHTML = 'Finished';
+          startButtonElement.innerHTML = 'Finished';
         }, 1000);
 
       }
@@ -92,6 +96,15 @@
 
       // 12e - create a button to display a message below it when clicked and remove the
       // message after 2 seconds
+
+      //updating with event listener for the add to cart button
+      const addToCartButtonElement = document.querySelector('.js-button-add-to-cart');
+
+      //event listener
+      addToCartButtonElement.addEventListener('click', () => {
+        displayMessage();
+      });
+
       function displayMessage() {
 
         const messageElement = document.querySelector('.js-message-box');
