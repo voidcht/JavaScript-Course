@@ -72,7 +72,8 @@ function renderToDoList(){
   document.querySelectorAll('.js-delete-todo-button')
     .forEach((deleteButton, index)=>{
       deleteButton.addEventListener('click', () => {
-        console.log(index);
+        //to check the closure feature of function - 'index' - always has access
+        //console.log(index);
         todoList.splice(index,1);
         renderToDoList();
       })
