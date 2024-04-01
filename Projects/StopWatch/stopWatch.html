@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .clock-container {
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 200px;
+        align-items: center;
+        background-color: rgb(26, 73, 26);
+        color: white;
+        padding: 20px 20px;
+        border-radius: 10px;
+        border: none;
+
+      }
+
+      .main-title {
+        font-family: Cambria;
+        font-variant: small-caps;
+        font-size: 18px;
+      }
+
+      .time {
+        font-size: 30px;
+        padding: 15px;
+      }
+
+
+      .button-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        background-color: rgb(26, 73, 26, 0.1);
+        border-radius: 10px;
+      }
+
+      button {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .start-button {
+        font-family: 'Lucida Sans';
+        font-size: 20px;
+        padding: 10px;
+        background-color: rgb(13, 39, 30);
+        color: rgb(250, 250, 250);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 5px 2px 10px rgb(3, 24, 22);
+        cursor: pointer;
+      }
+
+      .resume-button {
+        font-family: 'Lucida Sans';
+
+        font-size: 13px;
+        padding: 15px 10px;
+        background-color: rgb(13, 39, 30);
+        color: rgb(250, 250, 250);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 5px 2px 10px rgb(3, 24, 22);
+        cursor: pointer;
+      }
+
+
+
+
+
+
+      .stop-button {
+
+        font-family: 'Lucida Sans';
+        font-size: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: rgb(111, 17, 17);
+        color: rgb(250, 250, 250);
+        border: none;
+        border-radius: 45px;
+        box-shadow: 5px 2px 10px rgb(3, 24, 22);
+        cursor: pointer;
+      }
+
+
+      .reset-button {
+
+        font-family: 'Lucida Sans';
+        font-size: 20px;
+        padding: 10px;
+        background-color: rgb(13, 39, 30);
+        color: rgb(250, 250, 250);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 5px 2px 10px rgb(3, 24, 22);
+        cursor: pointer;
+      }
+    </style>
+    <title>Stop Watch App</title>
+  </head>
+
+  <body>
+    <div class="clock-container">
+      <div class="main-title">Stop Watch</div>
+
+      <div class="time"></div>
+
+      <div class="button-box">
+
+        <button class="start-button js-start-button">Start</button>
+
+
+        <button class="stop-button js-stop-button">Stop</button>
+
+
+        <button class="reset-button js-reset-button"> Reset</button>
+
+
+
+      </div>
+    </div>
+
+    <script>
+      let timerStarted = false;
+      let intervalID;
+      let seconds = 0;
+
+      const startButtonElement = document.querySelector('.js-start-button');
+
+      const stopButtonElement = document.querySelector('.js-stop-button');
+
+      const resetButtonElement = document.querySelector('.js-reset-button');
+
+      //adding event listeners
+      startButtonElement.addEventListener('click', () => {
+        timerStart();
+      });
+
+      stopButtonElement.addEventListener('click', () => {
+        stopTimer();
+      });
+
+      resetButtonElement.addEventListener('click', () => {
+        resetTimer();
+      });
+
+
+      function timerStart() {
+
+        //if already started - do nothing
+        if (timerStarted) {
+          console.log('Timer already started!');
+        }
+
+
+        //if not already started, start the timer
+        if (!timerStarted) {
+          console.log('timer started');
+          //to play timer every second and get the id value to stop the timer later
+          intervalID = setInterval(function () {
+            seconds++;
+            display(seconds);
+            console.log(seconds);
+          }, 1000);
+
+          //after starting the timer, set the flag to true
+          timerStarted = true;
+        }
+
+      }
+
+
+      function stopTimer() {
+
+        //if timer is already started, stop the timer
+        if (timerStarted) {
+          console.log('timer stopped');
+
+          clearInterval(intervalID);
+
+          //change the flag value
+          timerStarted = false;
+
+          //change the button start to 'resume'
+          startButtonElement.classList.add('resume-button');
+          startButtonElement.innerHTML = 'Resume';
+        }
+      }
+
+
+      function display(secs) {
+        let hours;
+        let mins;
+        let seco;
+        if (seconds >= 3600) {
+          hours = parseInt(secs / 3600);
+          mins = parseInt((secs % 3600) / 60);
+          seco = parseInt(secs % 60);
+        } else if (seconds >= 60) {
+          hours = 0;
+          mins = parseInt(secs / 60);
+          seco = parseInt(secs % 60);
+        } else {
+          hours = 0;
+          mins = 0;
+          seco = secs;
+        }
+
+        const time = `${hours}:${mins}:${seco}`;
+        console.log(time);
+        const timeElement = document.querySelector('.time');
+        timeElement.innerHTML = time;
+      }
+
+
+      function resetTimer() {
+        seconds = 0;
+        display(seconds);
+
+        //set the start button to 'start' from 'resume'
+        startButtonElement.innerHTML = 'Start';
+        startButtonElement.classList.remove('resume-button');
+      }
+
+
+
+    </script>
+  </body>
+
+</html>
